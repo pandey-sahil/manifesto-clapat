@@ -196,7 +196,7 @@ body {
 }
 #image-pg1 #image{
     z-index: 2;
-background-image: url(http://manifesto.clapat.com/images/00hero.jpg);
+background-image: url(./res/page1-image.jpg);
 background-position: center;
 background-size: cover;
     height: 96%;
