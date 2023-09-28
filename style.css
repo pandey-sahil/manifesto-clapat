@@ -38,6 +38,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: poppins;
+    color: #ffffff;
 }
 
 html,
@@ -48,6 +49,45 @@ body {
 
 }
 
+#loader{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: lightpink;
+    z-index: 99;
+    justify-content: center;
+    background-color: #000000;
+
+    gap: 20px;
+    position: absolute;
+}
+#loader div{
+    overflow: hidden;
+}
+#loader h1{
+    font-family: mona;
+    font-size: 5vw;
+    text-transform: uppercase;
+    font-weight: 100;
+
+}
+
+#loader div:nth-child(2) h1{
+    font-weight: 600;
+
+    font-family: mona;
+}
+.btmtxt{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    bottom: 5%;
+    left: 50%;
+}
+.btmtxt h4{
+    font-weight: 400;
+
+}
 #main{
     background-color: #0C0C0C;
 }
@@ -141,6 +181,9 @@ body {
     font-family: poppins;
     font-weight: 400;
     color: rgb(255, 255, 255);
+}
+#text h3 span{
+    overflow: hidden;
 }
 #image-pg1{
     height: 100vh;

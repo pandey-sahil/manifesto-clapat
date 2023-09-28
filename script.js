@@ -38,14 +38,62 @@ function loco() {
     ScrollTrigger.refresh();
 }
 loco();
-gsap.set("#page1-text",{
-    top:`150%`
-})
+
+function loading(){
+    // locoScroll.stop()
+    gsap.set("#nav",{
+        y:-100
+    })
+    var h1 = document.querySelector("#loader h1")
+    var grow = 0
 
 
+    //for the timer countdown
+    var inte = setInterval(function () {
+        if (grow < 90) {
+            grow += Math.floor(Math.random() * 20)
+            h1.innerHTML = grow + "%"
+        } else {
+            grow = 100
+            h1.innerHTML = grow + "%"
+            clearInterval(inte)
+            // locoScroll.start();
+           
+           
+        }
+        }, Math.floor(Math.random() * 70))
+    
+        var loadtl = gsap.timeline()
+        loadtl.to("#loader div:nth-child(2) h1",{
+            display:"none",
+            x:-500,
+        },"an")
+        loadtl.to("#loader div:nth-child(1)",{
+            x:10
+        },"an")
+        loadtl.to("#loader h1",{
+            y:`-100%`,
+            // opacity:0,
+            // duration:5
+            delay:.5
+        }).to(".btmtxt",{
+            opacity:0,
+            delay:.5
+        },"an")
+        .to("#loader",{
+            opacity:0
+        }).from("#text h1,#text h3",{
+            y:`100%`
+        }).to("#nav",{
+            y:0
+        })
+        
+};
 
 
-    function textAnimation() {
+loading();
+
+function textAnimation() {
         var page2h1 = document.querySelector("#page1-text h1").textContent.split("");
         var clutter = ""
         page2h1.forEach(function(elem){
@@ -64,6 +112,9 @@ gsap.set("#page1-text",{
                 markers:true,
                 pin:true
             }
+        })
+        gsap.set("#page1-text",{
+            top:`150%`
         })
         tl.to("#image-pg1 #image",{
             width:`100%`,
