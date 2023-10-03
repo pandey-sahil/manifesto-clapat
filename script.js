@@ -39,15 +39,29 @@ function loco() {
 }
 loco();
 
-function cursorAnimation(){
+function cursorAnimation() {
     var crsr = document.querySelector("#cursor")
-var main = document.querySelector("#main")
-main.addEventListener("mousemove", function (dets) {
-    gsap.to(crsr, {
-        left: dets.x,
-        top: dets.y,
+    var main = document.querySelector("#main")
+    main.addEventListener("mousemove", function (dets) {
+        gsap.to(crsr, {
+            left: dets.x,
+            top: dets.y,
+        })
     })
-})
+
+    document.querySelector("#nav").addEventListener("mouseenter", function (dets) {
+        gsap.to(crsr, {
+            scale: 2,
+            opacity: 0
+        })
+    })
+    document.querySelector("#nav").addEventListener("mouseleave", function (dets) {
+        gsap.to(crsr, {
+            scale: 1,
+            opacity: 1
+        })
+    })
+
 };
 cursorAnimation();
 
