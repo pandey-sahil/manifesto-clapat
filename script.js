@@ -39,10 +39,22 @@ function loco() {
 }
 loco();
 
-function loading(){
+function cursorAnimation(){
+    var crsr = document.querySelector("#cursor")
+var main = document.querySelector("#main")
+main.addEventListener("mousemove", function (dets) {
+    gsap.to(crsr, {
+        left: dets.x,
+        top: dets.y,
+    })
+})
+};
+cursorAnimation();
+
+function loading() {
     // locoScroll.stop()
-    gsap.set("#nav",{
-        y:-100
+    gsap.set("#nav", {
+        y: -100
     })
     var h1 = document.querySelector("#loader h1")
     var grow = 0
@@ -58,79 +70,79 @@ function loading(){
             h1.innerHTML = grow + "%"
             clearInterval(inte)
             // locoScroll.start();
-           
-           
+
+
         }
-        }, Math.floor(Math.random() * 70))
-    
-        var loadtl = gsap.timeline()
-        loadtl.to("#loader div:nth-child(2) h1",{
-            display:"none",
-            x:-500,
-        },"an")
-        loadtl.to("#loader div:nth-child(1)",{
-            x:10
-        },"an")
-        loadtl.to("#loader h1",{
-            y:`-100%`,
-            // opacity:0,
-            // duration:5
-            delay:.5
-        }).to(".btmtxt",{
-            opacity:0,
-            delay:.5
-        },"an")
-        .to("#loader",{
-            opacity:0
-        }).from("#text h1,#text h3",{
-            y:`100%`
-        }).to("#nav",{
-            y:0
+    }, Math.floor(Math.random() * 70))
+
+    var loadtl = gsap.timeline()
+    loadtl.to("#loader div:nth-child(2) h1", {
+        display: "none",
+        x: -500,
+    }, "an")
+    loadtl.to("#loader div:nth-child(1)", {
+        x: 10
+    }, "an")
+    loadtl.to("#loader h1", {
+        y: `-100%`,
+        // opacity:0,
+        // duration:5
+        delay: .5
+    }).to(".btmtxt", {
+        opacity: 0,
+        delay: .5
+    }, "an")
+        .to("#loader", {
+            opacity: 0
+        }).from("#text h1,#text h3", {
+            y: `100%`
+        }).to("#nav", {
+            y: 0
         })
-        
+
 };
-
-
 loading();
 
+
+
 function textAnimation() {
-        var page2h1 = document.querySelector("#page1-text h1").textContent.split("");
-        var clutter = ""
-        page2h1.forEach(function(elem){
-            clutter += `<span>${elem}</span>`
-            console.log(clutter)
-            document.querySelector("#page1-text h1").innerHTML = clutter
-        })
-        
-        var tl = gsap.timeline({
-            scrollTrigger:{
-                start:"top 0%",
-                end:"top -150%",
-                scroller:"#main",
-                trigger:"#image-pg1",
-                scrub:.5,
-                markers:true,
-                pin:true
-            }
-        })
-        gsap.set("#page1-text",{
-            top:`150%`
-        })
-        tl.to("#image-pg1 #image",{
-            width:`100%`,
-            duration:15
-            },"ani")
-            .to("#page1-text h1 span",{
-                color:"#fff",
-                stagger:.2
-            },"ani")
-            .to("#innertex",{
-                opacity:1
-            },"ani")
-            .to("#page1-text",{
-                top:`35%`,
-                duration:20
-            },"ani")
-        
-    }
-    textAnimation();
+    var page2h1 = document.querySelector("#page1-text h1").textContent.split("");
+    var clutter = ""
+    page2h1.forEach(function (elem) {
+        clutter += `<span>${elem}</span>`
+        // console.log(clutter)
+        document.querySelector("#page1-text h1").innerHTML = clutter
+    })
+
+    var tl = gsap.timeline({
+        scrollTrigger: {
+            start: "top 0%",
+            end: "top -150%",
+            scroller: "#main",
+            trigger: "#image-pg1",
+            scrub: .5,
+            markers: true,
+            pin: true
+        }
+    })
+    gsap.set("#page1-text", {
+        top: `150%`
+    })
+    tl.to("#image-pg1 #image", {
+        width: `100%`,
+        duration: 15
+    }, "ani")
+        .to("#page1-text h1 span", {
+            color: "#fff",
+            stagger: .2
+        }, "ani")
+        .to("#innertex", {
+            opacity: 1
+        }, "ani")
+        .to("#page1-text", {
+            top: `35%`,
+            duration: 20
+        }, "ani")
+
+}
+textAnimation();
