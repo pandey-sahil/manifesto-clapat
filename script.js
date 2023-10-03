@@ -39,6 +39,8 @@ function loco() {
 }
 loco();
 
+
+
 function cursorAnimation() {
     var crsr = document.querySelector("#cursor")
     var main = document.querySelector("#main")
@@ -52,13 +54,32 @@ function cursorAnimation() {
     document.querySelector("#nav").addEventListener("mouseenter", function (dets) {
         gsap.to(crsr, {
             scale: 2,
+            border:"1px solid #979797",
             opacity: 0
         })
     })
     document.querySelector("#nav").addEventListener("mouseleave", function (dets) {
         gsap.to(crsr, {
             scale: 1,
-            opacity: 1
+            opacity: 1,
+            border:"3px solid #979797",
+        })
+    })
+    document.querySelector("#menu").addEventListener("mouseenter", function (dets) {
+        gsap.to("h3:nth-child(1)", {
+            y:`-100%`,
+            // rotate:"5deg"
+        })
+        gsap.to("h3:nth-child(2)", {
+            y:`-100%`
+        })
+    })
+    document.querySelector("#menu").addEventListener("mouseleave", function (dets) {
+        gsap.to("h3:nth-child(1)", {
+            y:`0%`
+        })
+        gsap.to("h3:nth-child(2)", {
+            y:`100%`
         })
     })
 

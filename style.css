@@ -54,7 +54,7 @@ body {
 #cursor {
     height: 50px;
     width: 50px;
-    border: 4px solid #979797;
+    border: 3px solid #979797;
     position: absolute;
     transform: translate(-50%, -50%);
     border-radius: 50%;
@@ -130,9 +130,14 @@ body {
     align-items: center;
     gap: 2.5vw;
 }
-
+#menu{
+    background-color: red;
+    height: 1.1vw;
+    overflow: hidden;
+}
 #menu h3 {
     color: #ffffff;
+    line-height: 1;
     font-weight: 500;
     font-size: 1.1vw;
 }
