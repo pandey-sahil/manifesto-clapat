@@ -66,19 +66,19 @@ function cursorAnimation() {
         })
     })
     document.querySelector("#menu").addEventListener("mouseenter", function (dets) {
-        gsap.to("h3:nth-child(1)", {
+        gsap.to("#menu h3:nth-child(1)", {
             y:`-100%`,
             // rotate:"5deg"
         })
-        gsap.to("h3:nth-child(2)", {
+        gsap.to("#menu h3:nth-child(2)", {
             y:`-100%`
         })
     })
     document.querySelector("#menu").addEventListener("mouseleave", function (dets) {
-        gsap.to("h3:nth-child(1)", {
+        gsap.to("#menu h3:nth-child(1)", {
             y:`0%`
         })
-        gsap.to("h3:nth-child(2)", {
+        gsap.to("#menu h3:nth-child(2)", {
             y:`100%`
         })
     })
